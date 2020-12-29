@@ -1,0 +1,57 @@
+{"intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up", "Nice to see you", "Long time no see", "How is it going", "What's going on", "Yo", "Sup", "Whatsup", "G'day Mate", "You alright"],
+      "responses": ["Hello!", "Hi there, how can I help?", "Hi, how can I help you?"],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Take it easy","Seeya","cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day", "Bye", "I'm off", "Until next time", "Take care", "Stay safe", "I gotta go", "Later", "Catch you later"],
+      "responses": ["Goodbye!", "NO!"],
+      "context_set": ""
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"],
+      "context": ""
+    },
+    {
+      "tag": "overview",
+      "patterns": ["What does the rally analytics platform include"],
+      "responses": ["Everything"],
+      "context_set": ""
+    },
+    {
+      "tag": "rally in action",
+      "patterns": [],
+      "responses": [],
+      "context_set": ""
+    },
+    {
+      "tag": "class view",
+      "patterns": [],
+      "responses": [],
+      "context_set": ""
+    },
+    {
+      "tag": "student view",
+      "patterns": [],
+      "responses": [],
+      "context_set": ""
+    },
+    {
+      "tag": "student notebook",
+      "patterns": [],
+      "responses": [],
+      "context_set": ""
+    },
+    {
+      "tag": "Leader view",
+      "patterns": [],
+      "responses": [],
+      "context_set": ""
+    }
+]
+}
