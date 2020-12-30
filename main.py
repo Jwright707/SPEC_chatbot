@@ -8,11 +8,13 @@ import tflearn
 import tensorflow as tf
 import json
 import pickle
+from spellchecker import SpellChecker
 from nltk.stem.lancaster import LancasterStemmer
-
+spell = SpellChecker()
 stemmer = LancasterStemmer()
 with open("intents.json") as file:
     data = json.load(file)
+
 
 
 # --------------Preprocessing the data (Natural Language Processing) ---------------------------------------------------
@@ -144,11 +146,17 @@ def chat():
         user_input = input("You: ")
         if user_input.lower() == "quit":
             break
-        results = model.predict([bag_of_words(word_cleaner(user_input), words)])[0]
+        corrected_user_input = [spell.correction(input_words) for input_words in user_input.split()]
+        joined_input = " ".join(corrected_user_input)
+        results = model.predict([bag_of_words(word_cleaner(joined_input), words)])[0]
         # np.argmax gives the index of the greatest value in the list
         results_index = np.argmax(results)
         tag = labels[results_index]
-        if results[results_index] > 0.7:
+
+        if context_state == 'bug':
+            print("Thank you for reporting this issue/bug. We will work on fixing this.")
+            context_state = None
+        elif results[results_index] > 0.7 and context_state != 'bug':
             for tg in data["intents"]:
                 if tg['tag'] == tag:
                     # checks to see if the short term state is being used or not

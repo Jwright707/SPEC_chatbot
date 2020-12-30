@@ -1,0 +1,151 @@
+{
+   "Student Data and Analytics":[
+      {
+         "faq_question":"Where does the data come from?",
+         "faq_answer":"Rally includes student academic performance data that has been authorized for sharing by your district. We are able to provide student data to educators by connecting to existing district systems as part of the on-boarding process. The platform requires a connection to your school district\u2019s identity provider and single-sign-on service to ensure security and privacy of student records.\n\nThis includes historical data and updated 20-21 results from your interim and state summative assessments. Education Analytics has partnered with interim assessment vendors to incorporate this data and to receive updated data as frequently as possible during the school year. This ensures that you receive the most current and rigorous academic information about your students in ways that align to reports provided by your assessment vendor.\n",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"1"
+      },
+      {
+         "faq_question":"How are predictions made for students?",
+         "faq_answer":"Predictions in Rally represents our best estimate of how your student would have performed had they actually taken the test during a typical school year. Your student\u2019s predicted performance is based on their 2019 state assessment, as well as any interim assessments during the 2019 year for which data are available. \n\nPredictions will be updated throughout the year when additional assessment data is available.\n\nFor more information, click on the video link below.",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"2"
+      },
+      {
+         "faq_question":"How are you reporting Spring 2020 test scores if students did not take tests?",
+         "faq_answer":"The Spring 2020 scores represents our best estimate of how your students would have performed had they actually taken the test during a typical school year. Your student\u2019s predicted performance is based on their 2019 state assessment, as well as any interim assessments taken during the 2019 year. Since the impact of the COVID-19 disruption is not yet known at this time, consider this initial prediction a best guess of the trajectory this student would have been on if 2020 had been a typical school year. \n\nFor more information, click on the video link below.\n",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"3"
+      },
+      {
+         "faq_question":"What do I do if data is missing or wrong for my students?",
+         "faq_answer":"The data displayed in Rally come from your state summative assessment, district interim assessments, Student Information Systems (SIS), and student well-being survey if your district administered the survey. Your district may not have completed every step in the process to incorporate all of these data elements. You may want to start my contacting your Rally District Administrator to understand where your district is in the process. If there are still identified data issues your District Administrator should contact their Rally representative.",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"4"
+      },
+      {
+         "faq_question":"What do I do if students are missing from my roster?",
+         "faq_answer":"Rally pulls from your district's Student Information System (SIS), so it is possible that your class roster has not been completely scheduled in the SIS. The preferred approach would be to update rosters in the SIS to ensure Rally is pulling in the most up-to-date information. If that is not possible, school leaders can add students to rosters through the Classroom Roster tab of the Administrator Toolbox. \r\n\r\nFor more information, click on the video link below. ",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"5"
+      },
+      {
+         "faq_question":"How are student data protected?",
+         "faq_answer":"Rally facilitates efficient access and use of class- and student-level data, but these data must also be protected. Rally\u2019s technical system is designed to ensure security and compliance with data security and privacy laws, including the Family Educational Rights and Privacy Act (FERPA). By requiring a connection to your school district\u2019s identity provider and single-sign-on service, Rally ensures that your students\u2019 data is secure and only shown to the appropriate educators. \n\nSome features of Rally will only be seen by you; for example, any groups of students you create are unique to your Rally account. Notes that you take related to students and choose not to share are only visible to you. However, anything in Rally may be considered part of a student\u2019s academic record and therefore subject to relevant FERPA laws. The platform will remind you of such privacy considerations as you use these features. \n\nFor more information, click on the video link below. ",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"6"
+      }
+   ],
+   "Supporting Teaching and Learning":[
+      {
+         "faq_question":"How does Rally work with my other tools?",
+         "faq_answer":"Rally can enhance how you use existing tools by offering a more complete set of information about student academics and well-being in one place. Additionally, you can use Rally for direct action by recording notes about each student or creating student groups for instructional planning. \n\nOne of the ways Rally may differ from your other data tools is that predictions of student performance are based on comprehensive information about a student\u2019s past performance, combining interim and state assessment data.",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"10"
+      },
+      {
+         "faq_question":"How can I use Rally to learn about the whole student?",
+         "faq_answer":"Rally facilitates a deeper understanding about the \u201cwhole student.\u201d By displaying assessment data over the years, information about student well-being, open-ended student quotes, and teacher notes, Rally emphasizes that students are more than their most recent test data. Together, this information can help provide a bigger picture of a student's background and context. \n\nIn addition to reporting on historical well-being and assessment data, Rally incorporates equity pauses. These are brief activities that facilitate reflection about individual students prior to analyzing their data. You can complete equity pauses on your own or bring them to your professional learning community as you consider how to best support your students. There are eight equity pauses embedded throughout the different views of Rally. Each equity pause is also stored in the Information and Resources section.",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"7"
+      },
+      {
+         "faq_question":"How can I use Rally to set goals for my students?",
+         "faq_answer":"Rally can help you set goals for your students based on an understanding of their historical academic performance and aligned predictions of their future academic performance based on similar students. Within the individual student view, you can view your student\u2019s past assessment performance in the Assessments Over Time section. You can also see domain-level information for each assessment below. This detailed information can inform goals for each individual student, which can be monitored in each student's notebook.  \n\nFor more information, click on the video link below. ",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"8"
+      },
+      {
+         "faq_question":"How can I use Rally to reflect on equity in my class?",
+         "faq_answer":"Rally incorporates equity pauses and resources to emphasize the need to consider equity in education. Teachers have significant opportunities to take part in the reorganization of systems to create a more equitable future. These resources are meant to make those opportunities more noticeable and actionable. \n\nEquity pauses are brief activities that facilitate reflection about individual students prior to analyzing their data. You can complete equity pauses on your own or bring them to your professional learning community as you consider how to best support your students. There are eight equity pauses embedded throughout the different views of Rally. Each equity pause is also stored in the Information and Resources section.",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"9"
+      }
+   ],
+   "Information and Resources":[
+      {
+         "faq_question":"How do I access resources?",
+         "faq_answer":"Information and Resources for Rally can be accessed from the teacher and administrator toolboxs within their respective dashboards by clicking \"My Dashboard\" at the top of the screen. The Information and Resources section provides curated content to support your teaching with tools to see your students through the equity lens, build a culture for student well-being, and strengthen student academic skills in your classes. You can filter the resources by grade and by keyword.  Within each of the sections there are sub-categories. For example Under the equity lens you can find all 8 of the equity pauses, plus other equity resources. \n",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"11"
+      },
+      {
+         "faq_question":"How were the resources identified?",
+         "faq_answer":"EA worked state and non-profit partners as well as curriculum and assessment experts to curate the resources shared here. In that process, we prioritized high-quality open-source materials from states and other nonprofit organizations to support in teaching and assessing curriculum standards and well-being. ",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"12"
+      }
+   ],
+   "Class View Features and Use":[
+      {
+         "faq_question":"What information can I see about my entire class?",
+         "faq_answer":"The class view offers summary information about your class's well-being and academic data. There are three sections in the class view: at-a-glance, performance table, and student roster. \r\n\r\n\u2022  The at-a-glance section summarizes your class data for well-being (once it\u2019s been administered) and academic assessment performance in ELA and math. \r\n\u2022  The performance table provides a deeper view of well-being or academic data (based on the tab selected) by enabling you to drill into survey and assessment domains. \r\n\u2022  The student roster allows you to view each students' performance levels and well-being responses for the selected test or survey question. \r\n\r\n\\n You can also create student groups on this page, or import saved groups from the Manage Groups tab in the Teacher or Administrator Toolbox.\r\n",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"13"
+      }
+   ],
+   "Student View Features and Use":[
+      {
+         "faq_question":"What information can I see about my students?",
+         "faq_answer":"The student view offers high-level and detailed information about each of your students and provides you opportunities to reflect and take notes about each student. There are four sections in the student view: a snapshot, at-a-glance, assessments over time, and performance table. \n\n\u2022  The top snapshot section allows you to select your student, view quotes from this student if they took the well-being survey, and take a quick note.\n\u2022  The at-a-glance section shows the most recent survey and assessment data for the selected student.\n\u2022  The assessments over time section contains a graph with historical and predicted future student performance in ELA and math. \n\u2022  The performance table shows student responses on survey responses and performance on specific assessment domains. \n\n",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"17"
+      }
+   ],
+   "Student Notebook":[
+      {
+         "faq_question":"How can I use the student notebook?",
+         "faq_answer":"Rally provides notebooks embedded within the teacher toolbox for teachers to take notes related to each individual student. Notes may relate to observations from academic and well-being data, instructional supports provided, or goal identification or completion. There are three ways to access the notebooks: from the teacher dashboard in the teacher toolbox, from a student view page, and from the class roster within the class view. \n\nFor more information, click on the video link below. ",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"18"
+      }
+   ],
+   "School Leaders":[
+      {
+         "faq_question":"Where do class rosters come from and how do I change them?",
+         "faq_answer":"The class rosters in Rally are created with data transferred from your Student Information System (SIS). Rally\u2019s rosters will update whenever we receive new class, teacher, and student information. This could be as frequently as nightly depending on the connection method for your district. If roster data does not look right in Rally, the best approach is to correct the data directly in the SIS. If is not possible to make changes to the SIS, school leaders can manually make edits through the Classroom Roster tab of the Administrator Toolboxmake. Note that teachers do not have a Classroom Roster tab.\n\nFor more information, click on the video below.",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"20"
+      },
+      {
+         "faq_question":"How do I add a new class to Rally?",
+         "faq_answer":"Rally pulls from your district's Student Information System (SIS), so the preferred approach is to update the classes in the SIS to ensure that Rally is pulling in accurate information. If that is not possible, school leaders can add classes through the Classroom Roster tab of the Administrator Toolbox. These \"classes\" may correspond to actual classrooms, or may be subsets of students assigned to a particular educator in your building. \n\nFor more information, click on the video link below. ",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"21"
+      },
+      {
+         "faq_question":"How do I add a new staff member to Rally?",
+         "faq_answer":"Whenever you create a new class in the Classroom Roster tab of the Administrator Toolbox you will need to assign a teacher to that class. You will be given a list of teachers who are linked to your school in your district's Student Information System (SIS). You can pull from that list of staff when creating new classes. You cannot add a school staff member that is not in the SIS. Please contact your district's HR personnel or SIS administrator to see if a staff member can be added to the SIS.",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"22"
+      }
+   ],
+   "Still Have Questions?":[
+      {
+         "faq_question":"I have a question that is not in the FAQ, what do I do?",
+         "faq_answer":"Use the 'Contact Us' button at the bottom of your screen to reach out to the Rally team.",
+         "faq_url":null,
+         "faq_url_text":null,
+         "sort_order":"25"
+      }
+   ]
+}
