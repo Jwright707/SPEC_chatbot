@@ -42,7 +42,7 @@ def preprocessing_data(data, stemmer):
 
         for x, doc in enumerate(docs_x):
             bag = []
-            wrds = [stemmer.stem(w) for w in doc]
+            wrds = [stemmer.stem(w).lower() for w in doc]
 
             for w in words:
                 if w in wrds:

@@ -6,13 +6,13 @@ with open("faq.txt") as file:
     for section in sections:
         for value in sections[section]:
             value_formatter = {
-              "tag": section.lower(),
-              "patterns": [
-                value["faq_question"]
-              ],
-              "responses": [
-                value["faq_answer"]
-              ],
+                "tag": section.lower(),
+                "patterns": [
+                    value["faq_question"]
+                ],
+                "responses": [
+                    value["faq_answer"]
+                ],
             }
             formatter.append(value_formatter)
     out_file = open("faq_formatted.json", "w")

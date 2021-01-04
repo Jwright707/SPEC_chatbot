@@ -26,13 +26,12 @@ def chat(spell, model, words, stemmer, labels, data):
         user_input = input("You: ")
         if user_input.lower() == "quit":
             break
-        corrected_user_input = [spell.correction(input_words) for input_words in user_input.split()]
+        corrected_user_input = [spell.correction(input_words).lower() for input_words in user_input.split()]
         joined_input = " ".join(corrected_user_input)
         results = model.predict([bag_of_words(word_cleaner(joined_input), words, stemmer)])[0]
         # np.argmax gives the index of the greatest value in the list
         results_index = np.argmax(results)
         tag = labels[results_index]
-
         if context_state == 'bug':
             print("Thank you for reporting this issue/bug. We will work on fixing this.")
             context_state = None
@@ -47,5 +46,7 @@ def chat(spell, model, words, stemmer, labels, data):
                         else:
                             context_state = None
                         print(random.choice(responses))
+                    else:
+                        print("I don't understand, try asking a different question.")
         else:
             print("I don't understand, try asking a different question.")
