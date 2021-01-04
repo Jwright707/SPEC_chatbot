@@ -135,7 +135,9 @@
         "things are overlapping",
         "data disappearing",
         "page information disappearing",
-        "error"
+        "error",
+        "there's a bug",
+        "seeing a bug"
       ],
       "responses": [
         "Can you describe the issue/bug that is occurring?"
