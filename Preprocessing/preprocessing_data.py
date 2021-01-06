@@ -1,4 +1,5 @@
 import nltk
+from nltk.corpus import stopwords
 from future.moves import pickle
 import numpy as np
 
@@ -16,6 +17,9 @@ def preprocessing_data(data, stemmer):
         docs_x = []
         docs_y = []
         ignore_characters = ['!', '?', ',', '.']
+        # nltk.download('stopwords')
+        for word in set(stopwords.words('english')):
+            ignore_characters.append(word)
         for intent in data["intents"]:
             for patten in intent["patterns"]:
                 # stemmer takes each word in a pattern and reduces it to its root word
@@ -31,7 +35,6 @@ def preprocessing_data(data, stemmer):
         # removes any duplicates
         words = [stemmer.stem(w.lower()) for w in words if w not in ignore_characters]
         words = sorted(list(set(words)))
-
         labels = sorted(labels)
 
         # Bag of words

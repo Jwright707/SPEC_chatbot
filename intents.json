@@ -61,11 +61,11 @@
     {
       "tag": "options",
       "patterns": [
-        "How you could help me?",
-        "What you can do?",
-        "What help you provide?",
-        "How you can be helpful?",
-        "What support is offered"
+        "How could you help me?",
+        "What can you do?",
+        "What help can you provide to me?",
+        "What is your purpose?",
+        "What do you do?"
       ],
       "responses": [
         "I can guide you through the Rally application!",
@@ -268,7 +268,8 @@
         "What features are on Rally",
         "What can I see on Rally",
         "I'm wondering what features are on this website",
-        "What does Rally provide to the user"
+        "What does Rally provide to the user",
+        "What can I find on Rally"
       ],
       "responses": [
         "Rally features historical student data, formative and progress monitoring data, an interactive note-taking and goal-setting tool, equity-centered pauses for reflection, and future student performance predictions. The platform also provides links to resources for teachers to help their students catch up and succeed."
@@ -495,6 +496,7 @@
       "tag": "still have questions 1",
       "patterns": [
         "I have a question that is not in the FAQ, what do I do",
+        "I have a question that is not on the FAQ",
         "I want to ask a question not provided",
         "want to contact the Rally team",
         "reach out to the Rally team",
@@ -503,6 +505,30 @@
       ],
       "responses": [
         "Use the 'Contact Us' button at the bottom of your screen to reach out to the Rally team."
+      ]
+    },
+    {
+      "tag": "class question 1",
+      "patterns": [
+        "What is the class view",
+        "What does the classroom page offer",
+        "What does the classroom view contain",
+        "What information does the classroom view include"
+      ],
+      "responses": [
+        "The class view offers summary information about your classes well being and academic data."
+      ]
+    },
+    {
+      "tag": "student question 1",
+      "patterns": [
+        "What is the student view",
+        "What does the student view offer",
+        "What does the student view contain",
+        "What information does the student view include"
+      ],
+      "responses": [
+        "The student view offers high level and detailed information about each of your students."
       ]
     }
   ]
