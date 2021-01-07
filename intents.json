@@ -49,7 +49,7 @@
       "context_set": ""
     },
     {
-      "tag": "noanswer",
+      "tag": "no answer",
       "patterns": [
         "",
         " "
@@ -187,7 +187,7 @@
         "sad"
       ],
       "responses": [
-        "Awe thats unfortunate.",
+        "Awe that is unfortunate.",
         "Hate to hear it."
       ],
       "context_filter": "how_are_you"
@@ -201,7 +201,7 @@
         "you mean"
       ],
       "responses": [
-        "Well thats not very nice",
+        "Well that is not very nice",
         "I am sorry to hear that you feel that way"
       ]
     },
@@ -215,7 +215,7 @@
       ],
       "responses": [
         "I like you too!",
-        "Youre pretty cool yourself!",
+        "You are pretty cool yourself!",
         "Im enjoying our conversation!"
       ]
     },
@@ -258,7 +258,7 @@
       ],
       "responses": [
         "The Rally Analytics Platform is centered around an equity centered approach to continuous learning, through both well-being and academic data, and a set of curated resources for teachers as they work to help each student rebound and thrive.",
-        "Rally is designed to help teachers and school leaders reflect on and plan supports for the well-being and academic needs of students, needs that have likely changed or intensifed due to the recent disruptions in learning."
+        "Rally is designed to help teachers and school leaders reflect on and plan supports for the well-being and academic needs of students, needs that have likely changed or intensified due to the recent disruptions in learning."
       ]
     },
     {
@@ -352,10 +352,15 @@
       "patterns": [
         "how are student data protected",
         "how might my student's data be protected on Rally",
-        "what type of security does my student's data have"
+        "what type of security does my student's data have",
+        "what does rally do to protect security and privacy to my students and classrooms",
+        "what data security measures are in place for the protection of student and classroom data",
+        "Is my student and/or classroom data protected",
+        "what privacy acts are in place to defend my student's data",
+        "what security compliance is being forced to protect my classroom data"
       ],
       "responses": [
-        "Rally facilitates efficient access and use of class- and student-level data, but these data must also be protected. Rally\u2019s technical system is designed to ensure security and compliance with data security and privacy laws, including the Family Educational Rights and Privacy Act (FERPA). By requiring a connection to your school district\u2019s identity provider and single-sign-on service, Rally ensures that your students\u2019 data is secure and only shown to the appropriate educators. \n\nSome features of Rally will only be seen by you; for example, any groups of students you create are unique to your Rally account. Notes that you take related to students and choose not to share are only visible to you. However, anything in Rally may be considered part of a student\u2019s academic record and therefore subject to relevant FERPA laws. The platform will remind you of such privacy considerations as you use these features."
+        "Rally facilitates efficient access and use of class and student-level data, but these data must also be protected. Rally\u2019s technical system is designed to ensure security and compliance with data security and privacy laws, including the Family Educational Rights and Privacy Act (FERPA). By requiring a connection to your school district\u2019s identity provider and single-sign-on service, Rally ensures that your students\u2019 data is secure and only shown to the appropriate educators. \n\nSome features of Rally will only be seen by you; for example, any groups of students you create are unique to your Rally account. Notes that you take related to students and choose not to share are only visible to you. However, anything in Rally may be considered part of a student\u2019s academic record and therefore subject to relevant FERPA laws. The platform will remind you of such privacy considerations as you use these features."
       ]
     },
     {
@@ -411,7 +416,7 @@
         "where is the information and resources located"
       ],
       "responses": [
-        "Information and Resources for Rally can be accessed from the teacher and administrator toolboxs within their respective dashboards by clicking \"My Dashboard\" at the top of the screen. The Information and Resources section provides curated content to support your teaching with tools to see your students through the equity lens, build a culture for student well-being, and strengthen student academic skills in your classes. You can filter the resources by grade and by keyword.  Within each of the sections there are sub-categories. For example Under the equity lens you can find all 8 of the equity pauses, plus other equity resources. \n"
+        "Information and Resources for Rally can be accessed from the teacher and administrator toolboxes within their respective dashboards by clicking \"My Dashboard\" at the top of the screen. The Information and Resources section provides curated content to support your teaching with tools to see your students through the equity lens, build a culture for student well-being, and strengthen student academic skills in your classes. You can filter the resources by grade and by keyword.  Within each of the sections there are sub-categories. For example Under the equity lens you can find all 8 of the equity pauses, plus other equity resources. \n"
       ]
     },
     {
@@ -469,7 +474,7 @@
         "how are class rosters created"
       ],
       "responses": [
-        "The class rosters in Rally are created with data transferred from your Student Information System (SIS). Rally\u2019s rosters will update whenever we receive new class, teacher, and student information. This could be as frequently as nightly depending on the connection method for your district. If roster data does not look right in Rally, the best approach is to correct the data directly in the SIS. If is not possible to make changes to the SIS, school leaders can manually make edits through the Classroom Roster tab of the Administrator Toolboxmake. Note that teachers do not have a Classroom Roster tab."
+        "The class rosters in Rally are created with data transferred from your Student Information System (SIS). Rally\u2019s rosters will update whenever we receive new class, teacher, and student information. This could be as frequently as nightly depending on the connection method for your district. If roster data does not look right in Rally, the best approach is to correct the data directly in the SIS. If is not possible to make changes to the SIS, school leaders can manually make edits through the Classroom Roster tab of the Administrator Toolbox make. Note that teachers do not have a Classroom Roster tab."
       ]
     },
     {
@@ -529,6 +534,71 @@
       ],
       "responses": [
         "The student view offers high level and detailed information about each of your students."
+      ]
+    },
+     {
+      "tag": "predictions updated",
+      "patterns": [
+        "when will predictions be updated",
+        "when might predictions be changed or updated"
+      ],
+      "responses": [
+        "Predictions will be updated throughout the year when additional data is available."
+      ]
+    },
+    {
+      "tag": "assessment over time",
+      "patterns": [
+        "where can I find the assessments over time section",
+        "where is the location of the assessments over time for a student"
+      ],
+      "responses": [
+        "Further down, in the student view, you will find the assessments over time section which summarizes historical and predicted future student performance for ELA and Math, a solid line indicates actual scores, while a dash line signals that these are predicted scores"
+      ]
+    },
+    {
+      "tag": "student notebook 2",
+      "patterns": [
+        "where can I find the student notebook",
+        "where is the location of the student notebook"
+      ],
+      "responses": [
+        "You can also open the student notes from the teacher toolbox when you select a student's name from the drop down menu, you'll see the most recent entries for their notebook. There are three sections in the notebook well-being, academic and goals. Within each notebook section, you will see a chronological list of notes for your student. Here you can see all of the notes taken this year in the well-being section of the notebook. You can edit each note by typing directly into it.\n\nWhen you're done, click save to complete and save your note.\n\nYou can also take academic notes for selected student. You can either add a note or edit a note and then assign it to either math or L.A.. Once your note is complete, choose whether or not you'd like this note to be made public. Save your note, then close the notebook tab. The well-being page of the notebook works the same way. The Goals section of the notebook provides a template for setting and monitoring goals for your student. Start by adding a goal. When you're done, choose whether or not you want to make this goal public and hit save. You can open an existing note or goal and update its public or private status. Add notes or mark that a goal has been met. When you're done, don't forget to save your edits.\n"
+      ]
+    },
+    {
+      "tag": "manage groups 1",
+      "patterns": [
+        "where can I find the student groups",
+        "where is the location of the student groups",
+        "where can I find the manage groups",
+        "where is the location of the manage groups"
+      ],
+      "responses": [
+        "The first location is on the student roster table. Within the class view, this view allows you to make and save student groups according to a particular domain of well-being, English language arts or math. The second location can be found on the dashboard, where the managed groups tab is located in the tool box to create student groups directly from the dashboard."
+      ]
+    },
+    {
+      "tag": "manage groups 2",
+      "patterns": [
+        "how do I make a student groups",
+        "how could I use the student groups feature",
+        "how do I use the manage groups feature",
+        "how do I create a manage groups group",
+        "how do I put together a manage groups"
+      ],
+      "responses": [
+        "Click the manage groups tab, select your class and then click add set of groups and pick a name for the set. A set is a collection of groups around a topic that could be made as random groupings or curated groups of students. Next, select the number of groups you'd like in the set if you'd like for students to randomly populate into groups, select randomly populate. If you want to create your own intentional groupings, simply click generate groups. Once you have created a set of student groups, you can edit the name of each group or add an additional group to the set. You can also add students by clicking and dragging them from the class roster into a group or remove a student from a group. Groups and sets of student groups created in the managed groups to automatically save and can be loaded into the class view. If you no longer need a set of groups, they can be permanently deleted from your view. Note that once you select remove all groups, you will no longer be able to retrieve that set of groups."
+      ]
+    },
+    {
+      "tag": "student goal-setting",
+      "patterns": [
+        "what are student goal used for",
+        "what is the goal setting designed for students"
+      ],
+      "responses": [
+        "Rally will help you set goals for your students based on an understanding of their historical academic performance and aligned predictions of their future academic performance based on similar students. "
       ]
     }
   ]

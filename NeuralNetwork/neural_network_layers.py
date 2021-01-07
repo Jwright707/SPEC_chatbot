@@ -18,7 +18,7 @@ def neural_network(training, output):
     model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
     model.save("model.tflearn")
 
-    # There is an error occuring here, this is temporary commented out
+    # There is an error occurring here, this is temporary commented out
     # try:
     #     model.load("model.tflearn")
     # except:

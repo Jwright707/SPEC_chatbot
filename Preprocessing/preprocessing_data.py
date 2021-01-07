@@ -11,7 +11,7 @@ def preprocessing_data(data, stemmer):
         with open("data.pickle", "rb") as f:
             words, labels, training, output = pickle.load(f)
         return words, labels, training, output
-    except:
+    except FileNotFoundError:
         words = []
         labels = []
         docs_x = []
@@ -45,10 +45,10 @@ def preprocessing_data(data, stemmer):
 
         for x, doc in enumerate(docs_x):
             bag = []
-            wrds = [stemmer.stem(w).lower() for w in doc]
+            words_to_bag = [stemmer.stem(w).lower() for w in doc]
 
             for w in words:
-                if w in wrds:
+                if w in words_to_bag:
                     bag.append(1)
                 else:
                     bag.append(0)
