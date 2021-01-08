@@ -107,13 +107,13 @@
     {
       "tag": "name",
       "patterns": [
-        "whats is your name",
+        "what is your name",
         "whats your name",
         "whats should I call you",
         "how should I address you"
       ],
       "responses": [
-        "My name is Info Bot!"
+        "My name is Watson the Chatbot!"
       ]
     },
     {
