@@ -18,35 +18,48 @@ def bag_of_words(user_input, words, stemmer):
     return np.array(bag)
 
 
-def chat(spell, model, words, stemmer, labels, data):
-    print("Bot is ready to talk! (quit to stop)")
+def chat(spell, model, words, stemmer, labels, data, user_question, context_state_user):
+    response = {}
+    # print("Bot is ready to talk! (quit to stop)")
     # short term memory
-    context_state = None
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() == "quit":
-            break
-        corrected_user_input = [spell.correction(input_words).lower() for input_words in user_input.split()]
-        joined_input = " ".join(corrected_user_input)
-        results = model.predict([bag_of_words(word_cleaner(joined_input), words, stemmer)])[0]
-        # np.argmax gives the index of the greatest value in the list
-        results_index = np.argmax(results)
-        tag = labels[results_index]
-        if context_state == 'bug':
-            print("Thank you for reporting this issue/bug. We will work on fixing this.")
-            context_state = None
-        elif results[results_index] > 0.7 and context_state != 'bug':
-            for tg in data["intents"]:
-                if tg['tag'] == tag:
-                    # checks to see if the short term state is being used or not
-                    if 'context_filter' not in tg or 'context_filter' in tg and tg['context_filter'] == context_state:
-                        responses = tg['responses']
-                        if 'context_set' in tg:
-                            context_state = tg['context_set']
-                        else:
-                            context_state = None
-                        print(random.choice(responses))
+    # context_state = None
+    # while True:
+    user_input = user_question
+    # if user_input.lower() == "quit":
+    #     break
+    corrected_user_input = [spell.correction(input_words).lower() for input_words in user_input.split()]
+    joined_input = " ".join(corrected_user_input)
+    results = model.predict([bag_of_words(word_cleaner(joined_input), words, stemmer)])[0]
+    # np.argmax gives the index of the greatest value in the list
+    results_index = np.argmax(results)
+    tag = labels[results_index]
+    if context_state_user == 'bug':
+        # print("Thank you for reporting this issue/bug. We will work on fixing this.")
+        # context_state = None
+        response["response"] = "Thank you for reporting this issue/bug. We will work on fixing this."
+        response["context_state"] = ""
+        return response
+    elif results[results_index] > 0.7 and context_state_user != 'bug':
+        for tg in data["intents"]:
+            if tg['tag'] == tag:
+                # checks to see if the short term state is being used or not
+                if 'context_filter' not in tg or 'context_filter' in tg and tg['context_filter'] == context_state_user:
+                    responses = tg['responses']
+                    if 'context_set' in tg:
+                        context_state = tg['context_set']
                     else:
-                        print("I don't understand, try asking a different question.")
-        else:
-            print("I don't understand, try asking a different question.")
+                        context_state = None
+                    # print(random.choice(responses))
+                    response["response"] = random.choice(responses)
+                    response["context_state"] = context_state
+                    return response
+                else:
+                    # print("I don't understand, try asking a different question.")
+                    response["response"] = "I don't understand, try asking a different question."
+                    response["context_state"] = ""
+                    return response
+    else:
+        # print("I don't understand, try asking a different question.")
+        response["response"] = "I don't understand, try asking a different question."
+        response["context_state"] = ""
+        return response

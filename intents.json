@@ -518,10 +518,12 @@
         "What is the class view",
         "What does the classroom page offer",
         "What does the classroom view contain",
-        "What information does the classroom view include"
+        "What information does the classroom view include",
+        "What is the classroom page"
       ],
       "responses": [
-        "The class view offers summary information about your classes well being and academic data."
+        "The class view offers summary information about your classes well being and academic data.",
+        "The classroom page offers summary information about your classes well being and academic data."
       ]
     },
     {
@@ -530,10 +532,13 @@
         "What is the student view",
         "What does the student view offer",
         "What does the student view contain",
-        "What information does the student view include"
+        "What information does the student view include",
+        "What is the student page"
+
       ],
       "responses": [
-        "The student view offers high level and detailed information about each of your students."
+        "The student view offers high level and detailed information about each of your students.",
+        "The student page offers high level and detailed information about each of your students."
       ]
     },
      {
