@@ -1,0 +1,18 @@
+[
+    {
+        "tag": "NEED TAG",
+        "response": [
+            "whow"
+        ],
+        "patterns": [],
+        "context_set": ""
+    },
+    {
+        "tag": "NEED TAG",
+        "response": [
+            "what features do rally offer"
+        ],
+        "patterns": [],
+        "context_set": ""
+    }
+]

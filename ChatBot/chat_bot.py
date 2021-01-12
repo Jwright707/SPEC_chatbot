@@ -1,3 +1,4 @@
+import json
 import random
 import numpy as np
 import nltk
@@ -18,7 +19,7 @@ def bag_of_words(user_input, words, stemmer):
     return np.array(bag)
 
 
-def chat(spell, model, words, stemmer, labels, data, user_question, context_state_user):
+def chat(spell, model, words, stemmer, labels, data, user_question, context_state_user, unidentified_questions):
     response = {}
     # print("Bot is ready to talk! (quit to stop)")
     # short term memory
@@ -33,7 +34,14 @@ def chat(spell, model, words, stemmer, labels, data, user_question, context_stat
     # np.argmax gives the index of the greatest value in the list
     results_index = np.argmax(results)
     tag = labels[results_index]
-    if context_state_user == 'bug':
+
+    if joined_input == 'quit' or tag == 'goodbye':
+        with open('unidentified_questions.json', 'w') as outfile:
+            json.dump(unidentified_questions, outfile, indent=4)
+        response["response"] = "Goodbye!"
+        response["context_state"] = ""
+        return response
+    elif context_state_user == 'bug':
         # print("Thank you for reporting this issue/bug. We will work on fixing this.")
         # context_state = None
         response["response"] = "Thank you for reporting this issue/bug. We will work on fixing this."
@@ -55,11 +63,23 @@ def chat(spell, model, words, stemmer, labels, data, user_question, context_stat
                     return response
                 else:
                     # print("I don't understand, try asking a different question.")
+                    unidentified_questions.append({
+                        'tag': "NEED TAG",
+                        'response': [joined_input],
+                        'patterns': [],
+                        'context_set': ''
+                    })
                     response["response"] = "I don't understand, try asking a different question."
                     response["context_state"] = ""
                     return response
     else:
         # print("I don't understand, try asking a different question.")
+        unidentified_questions.append({
+            'tag': "NEED TAG",
+            'response': [joined_input],
+            'patterns': [],
+            'context_set': ''
+        })
         response["response"] = "I don't understand, try asking a different question."
         response["context_state"] = ""
         return response

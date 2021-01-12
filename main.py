@@ -21,14 +21,20 @@ words, labels, training, output = preprocessing_data(data, stemmer)
 
 model = neural_network(training, output)
 
-
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
+try:
+    with open("unidentified_questions.json") as json_file:
+        unidentified_questions = json.load(json_file)
+except FileNotFoundError:
+    unidentified_questions = []
 
 
 @app.route("/", methods=['POST'])
 def chatbot():
-    return chatbot_route(spell, model, words, stemmer, labels, data)
+    print(unidentified_questions)
+    return chatbot_route(spell, model, words, stemmer, labels, data, unidentified_questions)
 
 
 if __name__ == '__main__':
