@@ -21,6 +21,7 @@ words, labels, training, output = preprocessing_data(data, stemmer)
 
 model = neural_network(training, output)
 
+# -------------- Creating Flask Server ---------------------------------------------------------------------------------
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
@@ -33,7 +34,6 @@ except FileNotFoundError:
 
 @app.route("/", methods=['POST'])
 def chatbot():
-    print(unidentified_questions)
     return chatbot_route(spell, model, words, stemmer, labels, data, unidentified_questions)
 
 

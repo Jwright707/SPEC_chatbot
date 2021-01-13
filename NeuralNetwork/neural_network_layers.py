@@ -16,15 +16,15 @@ def neural_network(training, output):
     # DNN is a type of neural network
     model = tflearn.DNN(net)
 
-    # model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-    # model.save("model.tflearn")
+    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+    model.save("model.tflearn")
 
     # There is an error occurring here, this is temporary commented out
-    try:
-        model.load("model.tflearn")
-    except:
-        # Pass the training data (n_epoch is the number of times the model see the data)
-        model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-        model.save("model.tflearn")
+    # try:
+    #     model.load("model.tflearn")
+    # except:
+    #     # Pass the training data (n_epoch is the number of times the model see the data)
+    #     model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+    #     model.save("model.tflearn")
 
     return model
