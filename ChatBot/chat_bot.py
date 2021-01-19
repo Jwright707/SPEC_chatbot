@@ -32,8 +32,6 @@ def chat(spell, model, words, stemmer, labels, data, user_question, context_stat
     tag = labels[results_index]
 
     if joined_input == 'quit' or tag == 'goodbye':
-        with open('unidentified_questions.json', 'w') as outfile:
-            json.dump(unidentified_questions, outfile, indent=4)
         response["response"] = "Goodbye!"
         response["context_state"] = ""
         return response

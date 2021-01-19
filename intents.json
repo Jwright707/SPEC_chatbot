@@ -13,9 +13,7 @@
         "How is it going",
         "What's going on",
         "Yo",
-        "Sup",
-        "Whatsup",
-        "You alright"
+        "Sup"
       ],
       "responses": [
         "Hello!",
@@ -108,12 +106,21 @@
       "tag": "name",
       "patterns": [
         "what is your name",
-        "whats your name",
-        "whats should I call you",
-        "how should I address you"
+        "how should address you"
       ],
       "responses": [
         "My name is Watson the Chatbot!"
+      ]
+    },
+    {
+      "tag": "creator",
+      "patterns": [
+        "Who is your creator?",
+        "Who made you?",
+        "Who is Josh Wright?"
+      ],
+      "responses": [
+        "Josh is my creator :)."
       ]
     },
     {
