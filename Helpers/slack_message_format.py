@@ -47,6 +47,9 @@ def response_format(user_answer):
                     "type": "plain_text",
                     "text": "Thank you for your help, I'm learning more everyday!",
                 }
-            }
+            },
+            {
+                'type': 'divider'
+            },
         ]
     }
