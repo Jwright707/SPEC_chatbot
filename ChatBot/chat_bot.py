@@ -20,7 +20,9 @@ def bag_of_words(user_input, words, stemmer):
     return np.array(bag)
 
 
-def chat(spell, model, words, stemmer, labels, data, user_question, context_state_user, unidentified_questions):
+def chat(spell, model, words, stemmer, labels, data,
+         user_question, context_state_user, unidentified_questions, slack_client
+         ):
     response = {}
     user_input = user_question
     corrected_user_input = [spell.correction(input_words).lower() for input_words in user_input.split()]
@@ -52,6 +54,6 @@ def chat(spell, model, words, stemmer, labels, data, user_question, context_stat
                     response["context_state"] = context_state
                     return response
                 else:
-                    return unidentified_question_helper(unidentified_questions, joined_input, response)
+                    return unidentified_question_helper(unidentified_questions, joined_input, response, slack_client)
     else:
-        return unidentified_question_helper(unidentified_questions, joined_input, response)
+        return unidentified_question_helper(unidentified_questions, joined_input, response, slack_client)

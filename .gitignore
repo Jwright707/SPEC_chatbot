@@ -5,3 +5,4 @@ model.tflearn.index
 model.tflearn.meta
 Helpers/faq.txt
 unidentified_questions.json
+.env
