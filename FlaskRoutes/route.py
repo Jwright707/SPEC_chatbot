@@ -30,7 +30,7 @@ def chatbot_route(spell, model, words, stemmer, labels, data, unidentified_quest
     return response
 
 
-def chatbot_answering(unidentified_questions, slack_client, chatbot_helper, stemmer):
+def chatbot_answering(unidentified_questions, slack_client, chatbot_helper, stemmer, spell):
     answer_request = request.form
     slack_response = answer_request["text"]
     questions = unidentified_questions
@@ -47,7 +47,7 @@ def chatbot_answering(unidentified_questions, slack_client, chatbot_helper, stem
         existing_data['intents'].append(unidentified_questions[first_key])
 
         with open('intents.json', 'w') as outfile:
-            json.dump(existing_data, outfile, indent=4)
+            json.dump(existing_data, outfile, indent=2)
 
         # Deletes the old key from the object
         del unidentified_questions[first_key]

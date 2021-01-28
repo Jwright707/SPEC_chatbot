@@ -48,17 +48,13 @@ chatbot_helper = {
 
 @app.route("/", methods=['POST'])
 def chatbot():
-    print('Call with retrained', chatbot_helper)
-    for thread in threading.enumerate():
-        print(thread)
-    time.sleep(5)
     return chatbot_route(spell, chatbot_helper['model'], chatbot_helper['words'], stemmer, chatbot_helper['labels'],
                          chatbot_helper['data'], unidentified_questions, slack_client)
 
 
 @app.route("/answer", methods=["POST"])
 def answer():
-    chatbot_answering(unidentified_questions, slack_client, chatbot_helper, stemmer)
+    chatbot_answering(unidentified_questions, slack_client, chatbot_helper, stemmer, spell)
     return Response(), 200
 
 

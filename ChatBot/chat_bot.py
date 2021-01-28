@@ -24,15 +24,17 @@ def chat(spell, model, words, stemmer, labels, data,
          ):
     response = {}
     user_input = user_question
-    corrected_user_input = [spell.correction(input_words).lower() for input_words in user_input.split()]
-    joined_input = " ".join(corrected_user_input)
-    results = model.predict([bag_of_words(word_cleaner(joined_input), words, stemmer)])[0]
 
+    # Not working currently
+    # corrected_user_input = [spell.correction(input_words).lower() for input_words in user_input.split()]
+    # joined_input = " ".join(corrected_user_input)
+
+    cleaned_words = word_cleaner(user_input)
+    results = model.predict([bag_of_words(cleaned_words, words, stemmer)])[0]
     # np.argmax gives the index of the greatest value in the list
     results_index = np.argmax(results)
     tag = labels[results_index]
-
-    if joined_input == 'quit' or tag == 'goodbye':
+    if cleaned_words == 'quit' or tag == 'goodbye':
         response["response"] = "Goodbye!"
         response["context_state"] = ""
         return response
@@ -55,6 +57,6 @@ def chat(spell, model, words, stemmer, labels, data,
                     response["context_state"] = context_state
                     return response
                 else:
-                    return unidentified_question_helper(unidentified_questions, joined_input, response, slack_client)
+                    return unidentified_question_helper(unidentified_questions, cleaned_words, response, slack_client)
     else:
-        return unidentified_question_helper(unidentified_questions, joined_input, response, slack_client)
+        return unidentified_question_helper(unidentified_questions, cleaned_words, response, slack_client)
