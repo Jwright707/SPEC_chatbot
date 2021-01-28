@@ -1,10 +1,8 @@
-import os
-
 import tflearn
 import tensorflow as tf
 
 
-def neural_network(training, output):
+def retraining_neural_network(training, output):
     tf.reset_default_graph()
     # Input data which is the len of the training data
     net = tflearn.input_data(shape=[None, len(training[0])])
@@ -18,14 +16,6 @@ def neural_network(training, output):
     # DNN is a type of neural network
     model = tflearn.DNN(net)
 
-    # model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-    # model.save("model.tflearn")
-
-    # There is an error occurring here, this is temporary commented out
-    if os.path.exists("model.tflearn.meta"):
-        model.load("model.tflearn")
-    else:
-        model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-        model.save("model.tflearn")
-
+    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=False)
+    model.save("model.tflearn")
     return model

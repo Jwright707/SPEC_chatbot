@@ -17,5 +17,5 @@ def word_cleaner(string):
     string = re.sub(r"\'s", " is", string)
     string = re.sub(r"won't", "will not", string)
     string = re.sub(r"can't", "cannot", string)
-    string = re.sub(r"[-()\"#/@;:<>{}+=~|.?,]", "", string)
+    string = re.sub(r"[-()\"#/@;:<>{}+=~|.?,!]", "", string)
     return string

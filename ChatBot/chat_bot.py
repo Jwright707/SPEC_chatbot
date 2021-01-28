@@ -43,7 +43,9 @@ def chat(spell, model, words, stemmer, labels, data,
     elif results[results_index] > 0.7 and context_state_user != 'bug':
         for tg in data["intents"]:
             if tg['tag'] == tag:
-                if 'context_filter' not in tg or 'context_filter' in tg and tg['context_filter'] == context_state_user:
+                if 'context_filter' not in tg or 'context_filter' in tg \
+                        or 'context_set' not in tg or 'context_set' in tg \
+                        and tg['context_filter'] == context_state_user:
                     responses = tg['responses']
                     if 'context_set' in tg:
                         context_state = tg['context_set']

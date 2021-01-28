@@ -1,9 +1,11 @@
 import json
 import os
+import threading
+import time
 
 from spellchecker import SpellChecker
 from nltk.stem.lancaster import LancasterStemmer
-from flask import Flask
+from flask import Flask, Response
 from flask_cors import CORS
 
 from FlaskRoutes.route import chatbot_route, chatbot_answering
@@ -34,15 +36,30 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 unidentified_questions = {}
 
+chatbot_helper = {
+    "words": words,
+    "labels": labels,
+    "training": training,
+    "output": output,
+    "model": model,
+    "data": data
+}
+
 
 @app.route("/", methods=['POST'])
 def chatbot():
-    return chatbot_route(spell, model, words, stemmer, labels, data, unidentified_questions, slack_client)
+    print('Call with retrained', chatbot_helper)
+    for thread in threading.enumerate():
+        print(thread)
+    time.sleep(5)
+    return chatbot_route(spell, chatbot_helper['model'], chatbot_helper['words'], stemmer, chatbot_helper['labels'],
+                         chatbot_helper['data'], unidentified_questions, slack_client)
 
 
 @app.route("/answer", methods=["POST"])
 def answer():
-    return chatbot_answering(unidentified_questions, slack_client)
+    chatbot_answering(unidentified_questions, slack_client, chatbot_helper, stemmer)
+    return Response(), 200
 
 
 if __name__ == '__main__':
