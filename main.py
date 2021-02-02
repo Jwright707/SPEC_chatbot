@@ -42,14 +42,22 @@ chatbot_helper = {
     "training": training,
     "output": output,
     "model": model,
-    "data": data
+    "data": data,
+    'retraining': False
 }
 
 
 @app.route("/", methods=['POST'])
 def chatbot():
-    return chatbot_route(spell, chatbot_helper['model'], chatbot_helper['words'], stemmer, chatbot_helper['labels'],
-                         chatbot_helper['data'], unidentified_questions, slack_client)
+    if chatbot_helper["retraining"]:
+        return {
+            "user_input": "Currently assisting another user, please ask me this question in 15 - 30 seconds. Sorry "
+                          "for the inconvenience.",
+            "context_state": "retraining"
+        }
+    else:
+        return chatbot_route(spell, chatbot_helper['model'], chatbot_helper['words'], stemmer, chatbot_helper['labels'],
+                             chatbot_helper['data'], unidentified_questions, slack_client)
 
 
 @app.route("/answer", methods=["POST"])

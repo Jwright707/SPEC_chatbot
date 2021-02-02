@@ -73,6 +73,5 @@ def retraining(chatbot_helper, stemmer):
     chatbot_helper["data"] = data
 
     model = retraining_neural_network(training, output)
-
     chatbot_helper["model"] = model
-
+    chatbot_helper['retraining'] = False

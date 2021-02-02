@@ -42,7 +42,7 @@ def chat(spell, model, words, stemmer, labels, data,
         response["response"] = "Thank you for reporting this issue/bug. We will work on fixing this."
         response["context_state"] = ""
         return response
-    elif results[results_index] > 0.7 and context_state_user != 'bug':
+    elif results[results_index] > 0.6 and context_state_user != 'bug':
         for tg in data["intents"]:
             if tg['tag'] == tag:
                 if 'context_filter' not in tg or 'context_filter' in tg \

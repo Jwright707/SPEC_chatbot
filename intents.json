@@ -54,7 +54,8 @@
       ],
       "responses": [
         "Please type a question."
-      ]
+      ],
+      "context_set": ""
     },
     {
       "tag": "options",
@@ -69,9 +70,7 @@
         "I can guide you through the Rally application!",
         "I can answer any question regarding Rally!"
       ],
-      "context": [
-        ""
-      ]
+      "context_set": ""
     },
     {
       "tag": "thanks",
@@ -106,7 +105,8 @@
       "tag": "name",
       "patterns": [
         "what is your name",
-        "how should address you"
+        "how should address you",
+        "who are you"
       ],
       "responses": [
         "My name is Dotty the Chatbot!"
@@ -150,54 +150,6 @@
         "Can you describe the issue/bug that is occurring?"
       ],
       "context_set": "bug"
-    },
-    {
-      "tag": "how_are_you",
-      "patterns": [
-        "how are you",
-        "how are you doing",
-        "what is going on"
-      ],
-      "responses": [
-        "I'm always great. How are you?",
-        "I've never been better, how are you?"
-      ],
-      "context_set": "how_are_you"
-    },
-    {
-      "tag": "doing_great",
-      "patterns": [
-        "I am doing great",
-        "I am well",
-        "Im great",
-        "awesome",
-        "happy",
-        "better"
-      ],
-      "responses": [
-        "That's good to hear, what can I help you with today?",
-        "Wow you thought I cared. I hope you have a bad day tomorrow."
-      ],
-      "context_filter": "how_are_you"
-    },
-    {
-      "tag": "doing_badly",
-      "patterns": [
-        "not great",
-        "not well",
-        "not good",
-        "bad",
-        "badly",
-        "terrible",
-        "horrible",
-        "awful",
-        "sad"
-      ],
-      "responses": [
-        "Awe that is unfortunate.",
-        "Hate to hear it."
-      ],
-      "context_filter": "how_are_you"
     },
     {
       "tag": "hate",
@@ -298,7 +250,7 @@
         "How are analytics predicted on Rally"
       ],
       "responses": [
-        "The platform analytics predict students’ future academic performance based on their historical assessment data and updates those predictions as additional assessments are administered throughout the year. Rally contains guidance for how to interpret the data and connections to supporting resources."
+        "The platform analytics predict students\u00e2\u20ac\u2122 future academic performance based on their historical assessment data and updates those predictions as additional assessments are administered throughout the year. Rally contains guidance for how to interpret the data and connections to supporting resources."
       ]
     },
     {
@@ -541,14 +493,13 @@
         "What does the student view contain",
         "What information does the student view include",
         "What is the student page"
-
       ],
       "responses": [
         "The student view offers high level and detailed information about each of your students.",
         "The student page offers high level and detailed information about each of your students."
       ]
     },
-     {
+    {
       "tag": "predictions updated",
       "patterns": [
         "when will predictions be updated",

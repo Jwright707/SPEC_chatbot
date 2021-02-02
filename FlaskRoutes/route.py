@@ -13,6 +13,7 @@ def thread_function(index, chatbot_helper, stemmer):
     if index:
         return Response(), 200
     else:
+        chatbot_helper['retraining'] = True
         retraining(chatbot_helper, stemmer)
 
 
