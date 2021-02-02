@@ -495,8 +495,7 @@
         "What is the student page"
       ],
       "responses": [
-        "The student view offers high level and detailed information about each of your students.",
-        "The student page offers high level and detailed information about each of your students."
+        "The student view offers high level and detailed information about each of your students."
       ]
     },
     {
@@ -563,6 +562,16 @@
       "responses": [
         "Rally will help you set goals for your students based on an understanding of their historical academic performance and aligned predictions of their future academic performance based on similar students. "
       ]
+    },
+    {
+      "tag": "fad36293-40b9-48f3-ad58-03b5ad93c12e",
+      "patterns": [
+        "mochi29"
+      ],
+      "responses": [
+        "That is my 29th cat"
+      ],
+      "context_set": ""
     }
   ]
 }

@@ -16,6 +16,6 @@ def retraining_neural_network(training, output):
     # DNN is a type of neural network
     model = tflearn.DNN(net)
 
-    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+    model.fit(training, output, n_epoch=500, batch_size=8, show_metric=True)
     model.save("model.tflearn")
     return model

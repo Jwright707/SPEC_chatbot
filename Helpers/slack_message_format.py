@@ -53,3 +53,23 @@ def response_format(user_answer):
             },
         ]
     }
+
+
+def ignore_format():
+    return {
+        'channel': os.getenv("DOTTY_CHANNEL_ID"),
+        'username': 'Dotty the Chatbot',
+        'icon_emoji': '',
+        'blocks': [
+            {
+                'type': 'section',
+                'text': {
+                    "type": "plain_text",
+                    "text": "Thank you, question has successfully been ignore!",
+                }
+            },
+            {
+                'type': 'divider'
+            },
+        ]
+    }
