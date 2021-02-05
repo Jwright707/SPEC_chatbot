@@ -25,7 +25,7 @@ def neural_network(training, output):
     if os.path.exists("model.tflearn.meta"):
         model.load("model.tflearn")
     else:
-        model.fit(training, output, n_epoch=500, batch_size=8, show_metric=True)
+        model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
         model.save("model.tflearn")
 
     return model

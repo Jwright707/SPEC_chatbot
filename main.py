@@ -1,7 +1,5 @@
 import json
 import os
-import threading
-import time
 
 from spellchecker import SpellChecker
 from nltk.stem.lancaster import LancasterStemmer
