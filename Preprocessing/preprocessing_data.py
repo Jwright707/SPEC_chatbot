@@ -16,7 +16,9 @@ def preprocessing_data(data, stemmer):
     except FileNotFoundError:
         words = []
         labels = []
+        # Docs_x is an array of arrays of words
         docs_x = []
+        # Docs_y is an array of tags for each array
         docs_y = []
         ignore_characters = ['!', '?', ',', '.']
         # nltk.download('stopwords')
@@ -26,35 +28,35 @@ def preprocessing_data(data, stemmer):
             for patten in intent["patterns"]:
                 # stemmer takes each word in a pattern and reduces it to its root word
                 # there? -> there or whats up -> what
+                # Tokenizing breaks down sentences to words, words to characters, and/or words to subwords
                 tokenized_words = nltk.word_tokenize(word_cleaner(patten))
                 words.extend(tokenized_words)
+                # Tokenized words are an array of words broken down from the intent patterns
                 docs_x.append(tokenized_words)
                 docs_y.append(intent["tag"])
-
             if intent["tag"] not in labels:
                 labels.append(intent["tag"])
-
         # removes any duplicates
         words = [stemmer.stem(w.lower()) for w in words if w not in ignore_characters]
         words = sorted(list(set(words)))
         labels = sorted(labels)
-
         # Bag of words
         training = []
         output = []
 
+        # Array of 0 in the length of the labels
         out_empty = [0 for _ in range(len(labels))]
-
         for x, doc in enumerate(docs_x):
+            # x is the key and doc is the array of words
             bag = []
+            # Takes each word within each array of words and stems it
             words_to_bag = [stemmer.stem(w).lower() for w in doc]
-
+            # Checks to see if there are any words within the words array that are in the stemmed words array
             for w in words:
                 if w in words_to_bag:
                     bag.append(1)
                 else:
                     bag.append(0)
-
             output_row = out_empty[:]
             output_row[labels.index(docs_y[x])] = 1
 
