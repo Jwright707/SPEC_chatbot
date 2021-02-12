@@ -26,8 +26,6 @@ def preprocessing_data(data, stemmer):
             ignore_characters.append(word)
         for intent in data["intents"]:
             for patten in intent["patterns"]:
-                # stemmer takes each word in a pattern and reduces it to its root word
-                # there? -> there or whats up -> what
                 # Tokenizing breaks down sentences to words, words to characters, and/or words to subwords
                 tokenized_words = nltk.word_tokenize(word_cleaner(patten))
                 words.extend(tokenized_words)
@@ -37,6 +35,8 @@ def preprocessing_data(data, stemmer):
             if intent["tag"] not in labels:
                 labels.append(intent["tag"])
         # removes any duplicates
+        # stemmer takes each word in a pattern and reduces it to its root word
+        # there? -> there or whats up -> what
         words = [stemmer.stem(w.lower()) for w in words if w not in ignore_characters]
         words = sorted(list(set(words)))
         labels = sorted(labels)

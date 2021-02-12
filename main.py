@@ -14,7 +14,6 @@ from slack import WebClient
 from dotenv import load_dotenv
 
 load_dotenv()
-spell = SpellChecker()
 stemmer = LancasterStemmer()
 with open("intents.json") as file:
     data = json.load(file)
@@ -45,7 +44,7 @@ chatbot_helper = {
     'retraining': False
 }
 
-
+# Route communicates with the FE UI
 @app.route("/", methods=['POST'])
 def chatbot():
     if chatbot_helper["retraining"]:
@@ -55,13 +54,14 @@ def chatbot():
             "context_state": "retraining"
         }
     else:
-        return chatbot_route(spell, chatbot_helper['model'], chatbot_helper['words'], stemmer, chatbot_helper['labels'],
+        return chatbot_route(chatbot_helper['model'], chatbot_helper['words'], stemmer, chatbot_helper['labels'],
                              chatbot_helper['data'], unidentified_questions, slack_client)
 
 
+# Route communicates with Slack on responses to unidentified questions
 @app.route("/answer", methods=["POST"])
 def answer():
-    chatbot_answering(unidentified_questions, slack_client, chatbot_helper, stemmer, spell)
+    chatbot_answering(unidentified_questions, slack_client, chatbot_helper, stemmer)
     return Response(), 200
 
 

@@ -19,15 +19,10 @@ def bag_of_words(user_input, words, stemmer):
     return np.array(bag)
 
 
-def chat(spell, model, words, stemmer, labels, data,
-         user_question, context_state_user, unidentified_questions, slack_client
-         ):
+def chat(model, words, stemmer, labels, data,
+         user_question, context_state_user, unidentified_questions, slack_client):
     response = {}
     user_input = user_question
-
-    # Not working currently
-    # corrected_user_input = [spell.correction(input_words).lower() for input_words in user_input.split()]
-    # joined_input = " ".join(corrected_user_input)
 
     cleaned_words = word_cleaner(user_input)
     results = model.predict([bag_of_words(cleaned_words, words, stemmer)])[0]
