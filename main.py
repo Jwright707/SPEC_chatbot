@@ -44,6 +44,7 @@ chatbot_helper = {
     'retraining': False
 }
 
+
 # Route communicates with the FE UI
 @app.route("/", methods=['POST'])
 def chatbot():
@@ -65,6 +66,7 @@ def answer():
     return Response(), 200
 
 
+# Route communicates with Slack on ignoring unidentified questions
 @app.route("/ignore", methods=["POST"])
 def ignore():
     questions = unidentified_questions
