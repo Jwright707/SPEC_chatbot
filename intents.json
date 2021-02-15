@@ -3,7 +3,7 @@
     {
       "tag": "greeting",
       "patterns": [
-        "Hi",
+        "Hi there!",
         "Is anyone there?",
         "Hello",
         "Good day",
@@ -562,6 +562,26 @@
       "responses": [
         "Rally will help you set goals for your students based on an understanding of their historical academic performance and aligned predictions of their future academic performance based on similar students. "
       ]
+    },
+    {
+      "tag": "0f36da4d-6a8b-4bed-a6d2-b132c42ed046",
+      "patterns": [
+        "whats up"
+      ],
+      "responses": [
+        "Nothin much"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "8f8e93e7-0849-4008-a560-3f7e6cda2b2b",
+      "patterns": [
+        "mochi29"
+      ],
+      "responses": [
+        "My cat"
+      ],
+      "context_set": ""
     }
   ]
 }
