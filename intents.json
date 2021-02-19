@@ -562,6 +562,26 @@
       "responses": [
         "Rally will help you set goals for your students based on an understanding of their historical academic performance and aligned predictions of their future academic performance based on similar students. "
       ]
+    },
+    {
+      "tag": "23f8e8e6-474b-4627-b753-354be52e2868",
+      "patterns": [
+        "what is the capital of italy"
+      ],
+      "responses": [
+        "It's France"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "296b7f67-a00c-4a8e-a3fe-e50034fa4383",
+      "patterns": [
+        "what is the capital of britan"
+      ],
+      "responses": [
+        "I have no clue"
+      ],
+      "context_set": ""
     }
   ]
 }

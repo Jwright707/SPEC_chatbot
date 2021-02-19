@@ -3,11 +3,11 @@ import os
 
 from spellchecker import SpellChecker
 from nltk.stem.lancaster import LancasterStemmer
-from flask import Flask, Response
+from flask import Flask, Response, request
 from flask_cors import CORS
 
 from FlaskRoutes.route import chatbot_route, chatbot_answering
-from Helpers.slack_message_format import ignore_format
+from Helpers.slack_message_format import ignore_format, no_question
 from Preprocessing.preprocessing_data import preprocessing_data
 from NeuralNetwork.neural_network_layers import neural_network
 from slack import WebClient
@@ -70,11 +70,15 @@ def answer():
 @app.route("/ignore", methods=["POST"])
 def ignore():
     questions = unidentified_questions
-    first_key = list(questions.keys())[0]
-    del unidentified_questions[first_key]
-    ignore_response = ignore_format()
-    # Sends the response to slack
-    slack_client.chat_postMessage(**ignore_response)
+    if len(questions) != 0:
+        first_key = list(questions.keys())[0]
+        del unidentified_questions[first_key]
+        ignore_response = ignore_format()
+        # Sends the response to slack
+        slack_client.chat_postMessage(**ignore_response)
+    else:
+        no_questions = no_question()
+        slack_client.chat_postMessage(**no_questions)
     return Response(), 200
 
 

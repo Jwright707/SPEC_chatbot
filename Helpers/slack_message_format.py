@@ -73,3 +73,23 @@ def ignore_format():
             },
         ]
     }
+
+
+def no_question():
+    return {
+        'channel': os.getenv("DOTTY_CHANNEL_ID"),
+        'username': 'Dotty the Chatbot',
+        'icon_emoji': '',
+        'blocks': [
+            {
+                'type': 'section',
+                'text': {
+                    "type": "plain_text",
+                    "text": "There are currently no questions to ignore!",
+                }
+            },
+            {
+                'type': 'divider'
+            },
+        ]
+    }
