@@ -7,7 +7,7 @@ from flask import Flask, Response, request
 from flask_cors import CORS
 
 from FlaskRoutes.route import chatbot_route, chatbot_answering
-from Helpers.slack_message_format import ignore_format, no_question
+from Helpers.slack_message_format import ignore_format, no_question, unidentified_format
 from Preprocessing.preprocessing_data import preprocessing_data
 from NeuralNetwork.neural_network_layers import neural_network
 from slack import WebClient
@@ -76,6 +76,11 @@ def ignore():
         ignore_response = ignore_format()
         # Sends the response to slack
         slack_client.chat_postMessage(**ignore_response)
+        if len(list(questions.keys())) >= 1:
+            second_key = list(questions.keys())[0]
+            user_question = unidentified_questions[second_key]['patterns'][0]
+            slack_message = unidentified_format(user_question)
+            slack_client.chat_postMessage(**slack_message)
     else:
         no_questions = no_question()
         slack_client.chat_postMessage(**no_questions)
