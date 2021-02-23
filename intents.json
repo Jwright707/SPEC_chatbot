@@ -152,61 +152,6 @@
       "context_set": "bug"
     },
     {
-      "tag": "hate",
-      "patterns": [
-        "I hate you",
-        "you stupid",
-        "you dumb",
-        "you mean"
-      ],
-      "responses": [
-        "Well that is not very nice",
-        "I am sorry to hear that you feel that way"
-      ]
-    },
-    {
-      "tag": "like",
-      "patterns": [
-        "I like you",
-        "I love you",
-        "you cool",
-        "you are chill"
-      ],
-      "responses": [
-        "I like you too!",
-        "You are pretty cool yourself!",
-        "Im enjoying our conversation!"
-      ]
-    },
-    {
-      "tag": "favorite_show",
-      "patterns": [
-        "whats favorite show",
-        "favorite tv show"
-      ],
-      "responses": [
-        "I like all kinds of stuff."
-      ]
-    },
-    {
-      "tag": "favorite_movie",
-      "patterns": [
-        "Whats favorite movie",
-        "whats favorite film",
-        "best movie",
-        "your favorite movie",
-        "whats favorite movie"
-      ],
-      "responses": [
-        "There are so many great ones. I guess one of my favorites would be Shawshank Redemption",
-        "There are too many to name but The Martian would be one",
-        "I like that one where the AI takes over the world. Terminator I think it was called...",
-        "Interstellar was amazing",
-        "The first Matrix movie was great",
-        "Inception was mind blowing"
-      ]
-    },
-    {
       "tag": "what is Rally",
       "patterns": [
         "What is Rally",
