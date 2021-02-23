@@ -1,9 +1,8 @@
 import json
 import os
 
-from spellchecker import SpellChecker
 from nltk.stem.lancaster import LancasterStemmer
-from flask import Flask, Response, request
+from flask import Flask, Response
 from flask_cors import CORS
 
 from FlaskRoutes.route import chatbot_route, chatbot_answering

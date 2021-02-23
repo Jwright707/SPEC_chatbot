@@ -1,5 +1,3 @@
-import os
-
 import nltk
 from nltk.corpus import stopwords
 from future.moves import pickle

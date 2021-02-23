@@ -5,7 +5,6 @@ from flask import request, Response
 
 from ChatBot.chat_bot import chat
 from Helpers.slack_message_format import response_format, unidentified_format
-from Helpers.string_cleaner import word_cleaner
 from Preprocessing.retraining import retraining
 
 
