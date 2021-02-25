@@ -22,11 +22,11 @@ slack_client = WebClient(token=os.getenv('SLACK_BOT_TOKEN'))
 
 # -------------- Preprocessing the data (Natural Language Processing) --------------------------------------------------
 
-words, labels, training, output = preprocessing_data(data, stemmer)
+words, labels, training, output, vocab_size = preprocessing_data(data, stemmer)
 
 # -------------- Creating the Neural network layers (Deep Learning) ----------------------------------------------------
 
-model = neural_network(training, output)
+model = neural_network(training, output, vocab_size)
 
 # -------------- Creating Flask Server ---------------------------------------------------------------------------------
 app = Flask(__name__)

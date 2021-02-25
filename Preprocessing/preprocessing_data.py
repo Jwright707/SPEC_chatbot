@@ -25,6 +25,7 @@ def preprocessing_data(data, stemmer):
     # Docs_y is an array of tags for each array
     docs_y = []
     combine_patterns = []
+    combine_responses = []
     ignore_characters = ['!', '?', ',', '.']
     longest_string = ""
     tokenizer = Tokenizer(oov_token="<OOV>")
@@ -32,17 +33,32 @@ def preprocessing_data(data, stemmer):
     for word in set(stopwords.words('english')):
         ignore_characters.append(word)
     for intent in data["intents"]:
+        for pat in range(len(intent["patterns"])):
+            combine_patterns.append(intent["patterns"][pat])
+            combine_responses.append(intent["responses"][0])
+    test_size = 0.7
 
-        tokenized_words = tokenizer.fit_on_texts(intent["patterns"])
-        combine_patterns.extend(intent["patterns"])
+    train_y = combine_responses[:int(len(combine_responses)*test_size)]
+    train_x = combine_patterns[:int(len(combine_patterns)*test_size)]
+    test_y = combine_responses[int(len(combine_responses)*test_size):]
+    test_x = combine_patterns[int(len(combine_patterns)*test_size):]
+    tokenizer.fit_on_texts(train_y)
+    tokenizer.fit_on_texts(train_x)
+
     max_length = max([len(sentence.split(" ")) for sentence in combine_patterns])
-    print("Combined patterns", combine_patterns)
-    sequences = tokenizer.texts_to_sequences(combine_patterns)
+    # sequences = tokenizer.texts_to_sequences(combine_patterns)
 
-    padded = pad_sequences(sequences, padding="pre", truncating='pre', maxlen=max_length)
+    # padded = pad_sequences(sequences, padding="pre", truncating='pre', maxlen=max_length)
+    padded_training_x = pad_sequences(tokenizer.texts_to_sequences(train_x), padding="pre", truncating='pre', maxlen=max_length)
+    padded_test_x = pad_sequences(tokenizer.texts_to_sequences(test_x), padding="pre", truncating='pre', maxlen=max_length)
+    padded_training_y = pad_sequences(tokenizer.texts_to_sequences(train_y), padding="pre", truncating='pre', maxlen=max_length)
+    padded_test_y = pad_sequences(tokenizer.texts_to_sequences(test_y), padding="pre", truncating='pre', maxlen=max_length)
     print("Tokenizer:", tokenizer.word_index)
-    print('Sequence', sequences)
-    print('Padded', padded)
+    # print('Sequence', sequences)
+    print('Padded Train ', padded_training_x)
+    print('Padded Test', padded_test_x)
+    print('Padded Train ', padded_training_y)
+    print('Padded Test', padded_test_y)
 
     # if intent["tag"] not in labels:
     #     labels.append(intent["tag"])
@@ -83,4 +99,4 @@ def preprocessing_data(data, stemmer):
     with open("data.pickle", "wb") as f:
         pickle.dump((words, labels, training, output), f)
 
-    return words, labels, training, output
+    return words, labels, padded, output, len(tokenizer.word_index.keys())
