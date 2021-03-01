@@ -22,11 +22,11 @@ slack_client = WebClient(token=os.getenv('SLACK_BOT_TOKEN'))
 
 # -------------- Preprocessing the data (Natural Language Processing) --------------------------------------------------
 
-words, labels, training, output, vocab_size = preprocessing_data(data, stemmer)
+vocab_size, padded_training_x, padded_test_x, padded_training_y, padded_test_y = preprocessing_data(data, stemmer)
 
 # -------------- Creating the Neural network layers (Deep Learning) ----------------------------------------------------
 
-model = neural_network(training, output, vocab_size)
+model = neural_network(padded_training_x, padded_training_y, vocab_size)
 
 # -------------- Creating Flask Server ---------------------------------------------------------------------------------
 app = Flask(__name__)
@@ -35,10 +35,10 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 unidentified_questions = {}
 
 chatbot_helper = {
-    "words": words,
-    "labels": labels,
-    "training": training,
-    "output": output,
+    "words": "",
+    "labels": "",
+    # "training": training,
+    # "output": output,
     "model": model,
     "data": data,
     'retraining': False
