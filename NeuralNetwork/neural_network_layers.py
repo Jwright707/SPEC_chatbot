@@ -2,21 +2,12 @@ import os
 
 import tflearn
 import tensorflow as tf
+import numpy as np
 
-
-def neural_network(training, output, vocab_size):
-    # model = tf.keras.Sequential([
-    #     tf.keras.layers.Embedding("", "", ""),
-    #     tf.keras.layers.GlobalAveragePooling1D(),
-    #     tf.keras.layers.Dense(24, activation='relu'),
-    #     tf.keras.layers.Dense(1, activation='sigmoid')
-    # ])
-    # model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-
+def neural_network(training, output, padded_test_x, padded_test_y, tokenizer):
     tf.reset_default_graph()
     # Input data which is the len of the training data
     net = tflearn.input_data(shape=[None, len(training[0])])
-    # net = tflearn.embedding(net, input_dim=vocab_size, output_dim=len(training[0]))
     # Have 8 neurons for a layer
     net = tflearn.fully_connected(net, 8)
     # Have 8 neurons for another layer
@@ -27,14 +18,13 @@ def neural_network(training, output, vocab_size):
     # DNN is a type of neural network
     model = tflearn.DNN(net)
 
-    # model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-    # model.save("model.tflearn")
-
-    # There is an error occurring here, this is temporary commented out
-    if os.path.exists("model.tflearn.meta"):
-        model.load("model.tflearn")
-    else:
-        model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-        model.save("model.tflearn")
+    model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+    # print(training[0])
+    # print(output[0])
+    # print(padded_test_x[0])
+    # print(np.array(padded_test_x[0]))
+    input_value = padded_test_x[0][None, :]
+    print(model.predict(input_value))
+    model.save("model.tflearn")
 
     return model

@@ -19,29 +19,38 @@ def preprocessing_data(data, stemmer):
     #     return words, labels, training, output
     # except FileNotFoundError:
     words = []
-    labels = []
     # Docs_x is an array of arrays of words
     docs_x = []
     # Docs_y is an array of tags for each array
     docs_y = []
+    labels = []
     combine_patterns = []
-    combine_responses = []
+    # combine_responses = []
+    # combine_responses_set = set([])
     ignore_characters = ['!', '?', ',', '.']
-    longest_string = ""
+
     tokenizer = Tokenizer(oov_token="<OOV>")
     # nltk.download('stopwords')
     for word in set(stopwords.words('english')):
         ignore_characters.append(word)
     for intent in data["intents"]:
         for pat in range(len(intent["patterns"])):
-            combine_patterns.append(intent["patterns"][pat])
-            combine_responses.append(intent["responses"][0])
+            print(intent["patterns"][pat])
+            some_name = word_cleaner(intent["patterns"][pat])
+            for replacer in ['!', '?', ',', '.']:
+                some_name = some_name.replace(replacer, "")
+
+            word_split = some_name.split(" ")
+            words = [w.lower() for w in word_split if w not in ignore_characters]
+            combine_patterns.append(" ".join(words))
+            labels.append(intent['tag'])
+
     test_size = 0.7
 
-    train_y = combine_responses[:int(len(combine_responses)*test_size)]
-    train_x = combine_patterns[:int(len(combine_patterns)*test_size)]
-    test_y = combine_responses[int(len(combine_responses)*test_size):]
-    test_x = combine_patterns[int(len(combine_patterns)*test_size):]
+    train_y = labels[:int(len(combine_patterns) * test_size)]
+    train_x = combine_patterns[:int(len(combine_patterns) * test_size)]
+    test_y = labels[int(len(combine_patterns) * test_size):]
+    test_x = combine_patterns[int(len(combine_patterns) * test_size):]
     tokenizer.fit_on_texts(train_y)
     tokenizer.fit_on_texts(train_x)
 
@@ -49,16 +58,21 @@ def preprocessing_data(data, stemmer):
     # sequences = tokenizer.texts_to_sequences(combine_patterns)
 
     # padded = pad_sequences(sequences, padding="pre", truncating='pre', maxlen=max_length)
-    padded_training_x = pad_sequences(tokenizer.texts_to_sequences(train_x), padding="pre", truncating='pre', maxlen=max_length)
-    padded_test_x = pad_sequences(tokenizer.texts_to_sequences(test_x), padding="pre", truncating='pre', maxlen=max_length)
-    padded_training_y = pad_sequences(tokenizer.texts_to_sequences(train_y), padding="pre", truncating='pre', maxlen=max_length)
-    padded_test_y = pad_sequences(tokenizer.texts_to_sequences(test_y), padding="pre", truncating='pre', maxlen=max_length)
-    print("Tokenizer:", tokenizer.word_index)
-    # print('Sequence', sequences)
-    print('Padded Train X', padded_training_x)
-    print('Padded Test X', padded_test_x)
-    print('Padded Train Y', padded_training_y)
-    print('Padded Test Y', padded_test_y)
+    padded_training_x = pad_sequences(tokenizer.texts_to_sequences(train_x), padding="pre", truncating='pre',
+                                      maxlen=max_length)
+    padded_test_x = pad_sequences(tokenizer.texts_to_sequences(test_x), padding="pre", truncating='pre',
+                                  maxlen=max_length)
+    padded_training_y = pad_sequences(tokenizer.texts_to_sequences(train_y), padding="pre", truncating='pre',
+                                      maxlen=max_length)
+    padded_test_y = pad_sequences(tokenizer.texts_to_sequences(test_y), padding="pre", truncating='pre',
+                                  maxlen=max_length)
+    # print("Tokenizer:", tokenizer.word_index)
+    # # print('Sequence', sequences)
+    print('Padded Train X', tf.constant(padded_training_x).get_shape().as_list())
+    # print('Padded Test X', padded_test_x)
+    print('Padded Train Y', tf.constant(padded_training_y).get_shape().as_list())
+
+    # print('Padded Test Y', padded_test_y)
 
     # if intent["tag"] not in labels:
     #     labels.append(intent["tag"])
@@ -98,5 +112,4 @@ def preprocessing_data(data, stemmer):
 
     # with open("data.pickle", "wb") as f:
     #     pickle.dump((words, labels, training, output), f)
-
-    return len(tokenizer.word_index.keys()), padded_training_x, padded_test_x, padded_training_y, padded_test_y
+    return padded_training_x, padded_test_x, padded_training_y, padded_test_y, tokenizer
