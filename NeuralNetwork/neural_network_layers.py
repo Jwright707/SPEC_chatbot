@@ -4,6 +4,7 @@ import tflearn
 import tensorflow as tf
 import numpy as np
 
+
 def neural_network(training, output, padded_test_x, padded_test_y, tokenizer):
     tf.reset_default_graph()
     # Input data which is the len of the training data

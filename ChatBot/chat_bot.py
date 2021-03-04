@@ -25,6 +25,7 @@ def chat(model, words, stemmer, labels, data,
     user_input = user_question
 
     cleaned_words = word_cleaner(user_input)
+    print(cleaned_words, words)
     results = model.predict([bag_of_words(cleaned_words, words, stemmer)])[0]
     # np.argmax gives the index of the greatest value in the list
     results_index = np.argmax(results)

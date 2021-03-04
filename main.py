@@ -35,8 +35,8 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 unidentified_questions = {}
 
 chatbot_helper = {
-    "words": "",
-    "labels": "",
+    "words": padded_training_x,
+    "labels": padded_training_y,
     # "training": training,
     # "output": output,
     "model": model,

@@ -35,7 +35,6 @@ def preprocessing_data(data, stemmer):
         ignore_characters.append(word)
     for intent in data["intents"]:
         for pat in range(len(intent["patterns"])):
-            print(intent["patterns"][pat])
             some_name = word_cleaner(intent["patterns"][pat])
             for replacer in ['!', '?', ',', '.']:
                 some_name = some_name.replace(replacer, "")
