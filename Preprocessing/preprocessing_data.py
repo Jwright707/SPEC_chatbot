@@ -48,6 +48,8 @@ def preprocessing_data(data, stemmer):
 
     train_y = labels[:int(len(combine_patterns) * test_size)]
     train_x = combine_patterns[:int(len(combine_patterns) * test_size)]
+    # train_y = labels
+    # train_x = combine_patterns
     test_y = labels[int(len(combine_patterns) * test_size):]
     test_x = combine_patterns[int(len(combine_patterns) * test_size):]
     tokenizer.fit_on_texts(train_y)
@@ -111,4 +113,4 @@ def preprocessing_data(data, stemmer):
 
     # with open("data.pickle", "wb") as f:
     #     pickle.dump((words, labels, training, output), f)
-    return padded_training_x, padded_test_x, padded_training_y, padded_test_y, tokenizer
+    return padded_training_x, padded_test_x, padded_training_y, padded_test_y, tokenizer, labels

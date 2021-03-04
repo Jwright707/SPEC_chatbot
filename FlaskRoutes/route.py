@@ -17,7 +17,7 @@ def thread_function(index, chatbot_helper, stemmer):
         retraining(chatbot_helper, stemmer)
 
 
-def chatbot_route(model, words, stemmer, labels, data, unidentified_questions, slack_client):
+def chatbot_route(model, words, stemmer, labels, data, unidentified_questions, slack_client, tokenizer):
     question_request = request.get_json()
     # User Input
     user_question = question_request["user_input"]
@@ -26,7 +26,8 @@ def chatbot_route(model, words, stemmer, labels, data, unidentified_questions, s
     # Bag of Words Chatbot
     response = chat(
         model, words, stemmer, labels, data,
-        user_question, context_state_user, unidentified_questions, slack_client
+        user_question, context_state_user, unidentified_questions, slack_client,
+        tokenizer
     )
     return response
 

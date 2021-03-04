@@ -1,6 +1,7 @@
 import random
 import numpy as np
 import nltk
+from keras_preprocessing.sequence import pad_sequences
 
 from Helpers.string_cleaner import word_cleaner
 from Helpers.unidentified_question_helper import unidentified_question_helper
@@ -19,17 +20,25 @@ def bag_of_words(user_input, words, stemmer):
     return np.array(bag)
 
 
+def padding_user_word(user_input, tokenizer):
+    print(user_input)
+    padded_user_input = pad_sequences(tokenizer.texts_to_sequences([user_input]), padding="pre", truncating='pre',
+                                      maxlen=8)
+    return padded_user_input[0][None, :]
+
+
 def chat(model, words, stemmer, labels, data,
-         user_question, context_state_user, unidentified_questions, slack_client):
+         user_question, context_state_user, unidentified_questions, slack_client, tokenizer):
     response = {}
     user_input = user_question
 
     cleaned_words = word_cleaner(user_input)
-    print(cleaned_words, words)
-    results = model.predict([bag_of_words(cleaned_words, words, stemmer)])[0]
+    padded_user_input = padding_user_word(cleaned_words, tokenizer)
+    results = model.predict(padded_user_input)
     # np.argmax gives the index of the greatest value in the list
     results_index = np.argmax(results)
     tag = labels[results_index]
+    print(results[0][results_index])
     if cleaned_words == 'quit' or tag == 'goodbye':
         response["response"] = "Goodbye!"
         response["context_state"] = ""
@@ -38,7 +47,7 @@ def chat(model, words, stemmer, labels, data,
         response["response"] = "Thank you for reporting this issue/bug. We will work on fixing this."
         response["context_state"] = ""
         return response
-    elif results[results_index] > 0.8 and context_state_user != 'bug':
+    elif results[0][results_index] > 0 and context_state_user != 'bug':
         for tg in data["intents"]:
             if tg['tag'] == tag:
                 if 'context_filter' not in tg or 'context_filter' in tg \

@@ -22,7 +22,7 @@ slack_client = WebClient(token=os.getenv('SLACK_BOT_TOKEN'))
 
 # -------------- Preprocessing the data (Natural Language Processing) --------------------------------------------------
 
-padded_training_x, padded_test_x, padded_training_y, padded_test_y, tokenizer = preprocessing_data(data, stemmer)
+padded_training_x, padded_test_x, padded_training_y, padded_test_y, tokenizer, labels = preprocessing_data(data, stemmer)
 
 # -------------- Creating the Neural network layers (Deep Learning) ----------------------------------------------------
 
@@ -36,12 +36,13 @@ unidentified_questions = {}
 
 chatbot_helper = {
     "words": padded_training_x,
-    "labels": padded_training_y,
+    "labels": labels,
     # "training": training,
     # "output": output,
     "model": model,
     "data": data,
-    'retraining': False
+    'retraining': False,
+    'tokenizer': tokenizer
 }
 
 
@@ -56,7 +57,7 @@ def chatbot():
         }
     else:
         return chatbot_route(chatbot_helper['model'], chatbot_helper['words'], stemmer, chatbot_helper['labels'],
-                             chatbot_helper['data'], unidentified_questions, slack_client)
+                             chatbot_helper['data'], unidentified_questions, slack_client, chatbot_helper['tokenizer'])
 
 
 # Route communicates with Slack on responses to unidentified questions
