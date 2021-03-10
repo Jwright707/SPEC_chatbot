@@ -38,7 +38,7 @@ def chat(model, words, stemmer, labels, data,
     # np.argmax gives the index of the greatest value in the list
     results_index = np.argmax(results)
     tag = labels[results_index]
-    print(results[0][results_index])
+    print(results[0][results_index], tag)
     if cleaned_words == 'quit' or tag == 'goodbye':
         response["response"] = "Goodbye!"
         response["context_state"] = ""

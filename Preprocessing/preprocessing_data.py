@@ -6,6 +6,7 @@ from tensorflow import keras
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from nltk.corpus import stopwords
+import pandas as pd
 from future.moves import pickle
 import numpy as np
 
@@ -59,6 +60,8 @@ def preprocessing_data(data, stemmer):
     # sequences = tokenizer.texts_to_sequences(combine_patterns)
 
     # padded = pad_sequences(sequences, padding="pre", truncating='pre', maxlen=max_length)
+    print(train_x)
+    print(train_y)
     padded_training_x = pad_sequences(tokenizer.texts_to_sequences(train_x), padding="pre", truncating='pre',
                                       maxlen=max_length)
     padded_test_x = pad_sequences(tokenizer.texts_to_sequences(test_x), padding="pre", truncating='pre',
@@ -69,9 +72,9 @@ def preprocessing_data(data, stemmer):
                                   maxlen=max_length)
     # print("Tokenizer:", tokenizer.word_index)
     # # print('Sequence', sequences)
-    print('Padded Train X', tf.constant(padded_training_x).get_shape().as_list())
+    print('Padded Train X', padded_training_x)
     # print('Padded Test X', padded_test_x)
-    print('Padded Train Y', tf.constant(padded_training_y).get_shape().as_list())
+    print('Padded Train Y', padded_training_y)
 
     # print('Padded Test Y', padded_test_y)
 

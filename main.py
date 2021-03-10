@@ -12,7 +12,8 @@ from Preprocessing.preprocessing_data import preprocessing_data
 from NeuralNetwork.neural_network_layers import neural_network
 from slack import WebClient
 from dotenv import load_dotenv
-
+app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 load_dotenv()
 stemmer = LancasterStemmer()
 with open("intents.json") as file:
@@ -29,8 +30,6 @@ padded_training_x, padded_test_x, padded_training_y, padded_test_y, tokenizer, l
 model = neural_network(padded_training_x, padded_training_y, padded_test_x, padded_test_y, tokenizer)
 
 # -------------- Creating Flask Server ---------------------------------------------------------------------------------
-app = Flask(__name__)
-cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 unidentified_questions = {}
 
