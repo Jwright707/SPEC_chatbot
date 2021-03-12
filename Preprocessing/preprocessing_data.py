@@ -47,10 +47,10 @@ def preprocessing_data(data, stemmer):
 
     test_size = 0.7
 
-    train_y = labels[:int(len(combine_patterns) * test_size)]
-    train_x = combine_patterns[:int(len(combine_patterns) * test_size)]
-    # train_y = labels
-    # train_x = combine_patterns
+    # train_y = labels[:int(len(combine_patterns) * test_size)]
+    # train_x = combine_patterns[:int(len(combine_patterns) * test_size)]
+    train_y = labels
+    train_x = combine_patterns
     test_y = labels[int(len(combine_patterns) * test_size):]
     test_x = combine_patterns[int(len(combine_patterns) * test_size):]
     tokenizer.fit_on_texts(train_y)
@@ -63,14 +63,12 @@ def preprocessing_data(data, stemmer):
     print(train_x)
     print(train_y)
     padded_training_x = pad_sequences(tokenizer.texts_to_sequences(train_x), padding="pre", truncating='pre',
-                                      maxlen=max_length)
+                                      maxlen=8)
     padded_test_x = pad_sequences(tokenizer.texts_to_sequences(test_x), padding="pre", truncating='pre',
                                   maxlen=max_length)
-    padded_training_y = pad_sequences(tokenizer.texts_to_sequences(train_y), padding="pre", truncating='pre',
-                                      maxlen=max_length)
+    padded_training_y = [i[0] for i in tokenizer.texts_to_sequences(train_y)]
     padded_test_y = pad_sequences(tokenizer.texts_to_sequences(test_y), padding="pre", truncating='pre',
                                   maxlen=max_length)
-    # print("Tokenizer:", tokenizer.word_index)
     # # print('Sequence', sequences)
     print('Padded Train X', padded_training_x)
     # print('Padded Test X', padded_test_x)
