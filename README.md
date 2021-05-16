@@ -1,4 +1,4 @@
-# SPEC_chatbot
+# SPEC_chatbot (Education Analytics Project)
 This application is a chatbot designed for a specific website. It uses NLP and Deep learning to create a chatbot and. This chatbot is integrated with Slack because if the bot doens't understand a question it will message a specific channel for help on answering the user question. 
 
 # Powerpoint
